@@ -1,0 +1,33 @@
+
+
+# roll numbers: 19bcs081,19bec008
+
+class blooddonar:
+    _rollnumber=0
+    __blooddonarname=""
+    __gender=""
+    __hospital=""
+    __bloodgroup=""
+
+    def setData(self,rollnumber,blooddonarname,gender,hospital,bloodgroup):
+        self.__rollnumber=rollnumber
+        self.__blooddonarname = blooddonarname
+        self.__gender = gender
+        self.__hospital = hospital
+        self.__bloodgroup = bloodgroup
+
+    def showData(self):
+        print("rollnumber\t\t:",self.__rollnumber)
+        print("blooddonarName\t:", self.__blooddonarname)
+        print("Gender\t:", self.__gender)
+        print("hospital\t:", self.__hospital)
+        print("bloodgroup\t:", self.__bloodgroup)
+
+def main():
+    
+    donar=blooddonar()
+    donar.setData(1,'tony','male','kims','A+')
+    donar.showData()
+
+if __name__=="__main__":
+    main()
