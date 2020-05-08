@@ -1,0 +1,45 @@
+import random
+class QA:
+  def __init__(self, question, correctAnswer, otherAnswers):
+    self.question = question
+    self.corrAnsw = correctAnswer
+    self.otherAnsw = otherAnswers
+
+qaList = [
+QA("What is symbol of bitcoin?" , " BTC\n", ["BCH\n" , "doesnot exist\n"]),
+QA("What is the price of NEO?", "119.082", ["111.014", "111.65", " doesn't exist"]),
+QA("What is the full form of ETH?", " Ethereum", ["Magnesium", "aluminium", "europe"]),
+QA("Which of the following is symbol ofstellar?", "XLM", ["OMH", "WHO"]),
+QA("What is  the price of ripple?", "1.04144", ["2.0986", "1.9078", "0.09876", "2.7956"]),
+QA("what is full form of LTC?","Litecoin",["nicotine","alumin"]),
+QA("what is the symbol of TRON?","TRX",["NHJ" "LKU","GTG"]),
+QA("what does VEN means?","vechain",["ko chain","hi chain"]),
+QA("what is the full form of tether?","USDT",["KGFT","NDTV"]),
+QA("what is symbol of nano?","XRB",["MNJ","CFC"]),
+QA("what is the symbol of dash?","DASH",["ASHS","SMAS"]),
+QA("what is price of EOS?","9.92927",["9.5776","8.97879"])]
+random.shuffle(qaList)
+for qaItem in qaList:
+  print("Possible answers are:")
+  print(qaItem.question)
+  possible = qaItem.otherAnsw + [qaItem.corrAnsw]
+  random.shuffle(possible)
+  count = 0 
+  while count < len(possible):
+    print(str(count+1) + ": " + possible[count])
+    count += 1
+  print("Please enter the number of your answer:")
+  userAnsw = input()
+  while not userAnsw.isdigit():
+    print("That was not a number. Please enter the number of your answer:")
+    userAnsw = input()
+  userAnsw = int(userAnsw)
+  while not (userAnsw > 0 and userAnsw <= len(possible)):
+    print("That number doesn't correspond to any answer. Please enter the number of your answer:")
+    userAnsw = input()
+  if possible[userAnsw-1] == qaItem.corrAnsw:
+    print("Your answer was correct.")
+  else:
+    print("Your answer was wrong.")
+    print("Correct answer was: " + qaItem.corrAnsw)
+  print("")
