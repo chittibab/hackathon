@@ -26,3 +26,9 @@ r.add_child(t)
 
 for c in n.children:
     print (c.data)
+for c in p.children:
+    Print (c.data)
+for c in q.children:
+    Print (c.data)
+for c in r.children:
+    Print (c.data)
